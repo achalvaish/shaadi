@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Achal &amp; Abhilasha</title>
+<meta property="og:title" content="Achal &amp; Abhilasha">
+<meta property="og:description" content="Kindly let us know if you can join us.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Hind:wght@400;500;600&display=swap">
+<style>
+/* One column, phone first. A stitched Lucknowi arch carries the names; replies sit below it as a plain list. */
+:root {
+  color-scheme: light;
+  --bg: #F7F3F0; --paper: #FDFBF9; --ink: #14302E; --ink-2: #536661;
+  --gold: #B08D4F; --gold-text: #86672E; --primary: #1E4A47; --on-primary: #F7F3F0;
+  --blush: #EBDDD8; --no: #6B4A44; --alert: #9A2A36;
+  --line: rgba(20, 48, 46, .14); --line-2: rgba(20, 48, 46, .28);
+  --display: 'Rozha One', Georgia, 'Times New Roman', serif;
+  --body: 'Hind', 'Helvetica Neue', Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+[hidden] { display: none !important; }
+button, input { font: inherit; color: inherit; }
+a { color: var(--ink); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.wrap { max-width: 460px; margin: 0 auto; padding: 0 20px 48px; display: flex; flex-direction: column; }
+
+.arch { position: relative; width: 100%; max-width: 360px; aspect-ratio: 390 / 336; margin: 12px auto 0; container-type: inline-size; }
+.arch svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.arch .o { fill: none; stroke: var(--gold); stroke-width: 1; }
+.arch .s { fill: none; stroke: var(--primary); stroke-width: 1.1; stroke-dasharray: 3.5 3.5; stroke-linecap: round; }
+.arch .in { position: absolute; left: 14%; right: 14%; top: 27%; bottom: 6%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 1.6cqw; }
+.bless { font-family: var(--display); font-size: max(12px, 3.9cqw); color: var(--gold-text); }
+.names { margin: 0; font-family: var(--display); font-weight: 400; line-height: 1.04; display: flex; flex-direction: column; align-items: center; }
+.names .n { font-size: 11.6cqw; }
+.names .amp { font-size: 5.6cqw; color: var(--gold); line-height: 1.2; }
+
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-text); }
+h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.12; text-wrap: balance; }
+.lede { margin: 0; color: var(--ink-2); }
+.intro { display: flex; flex-direction: column; gap: 10px; padding: 26px 0 8px; }
+
+.events { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.event { display: flex; flex-direction: column; gap: 12px; padding: 22px 0; border-top: 1px dashed var(--line-2); }
+.event:last-child { border-bottom: 1px dashed var(--line-2); }
+.event h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 26px; line-height: 1.1; }
+.event .when { font-weight: 600; }
+.event .where { color: var(--ink-2); font-size: 15px; }
+.event .map { font-size: 14px; font-weight: 500; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+.meta { display: flex; flex-direction: column; gap: 2px; }
+.choice { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.opt { min-height: 50px; padding: 8px 10px; background: transparent; border: 1px solid var(--line-2); border-radius: 3px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.opt svg { display: none; flex: none; }
+.opt[aria-pressed="true"] svg { display: block; }
+.opt.yes[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.opt.no[aria-pressed="true"] { background: var(--blush); border-color: var(--no); color: var(--no); }
+.opt:disabled { cursor: default; opacity: .75; }
+.closed-note { font-size: 14px; color: var(--ink-2); }
+
+.actions { display: flex; flex-direction: column; gap: 10px; padding-top: 24px; }
+.btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 56px; padding: 0 20px; background: var(--primary); color: var(--on-primary); border: 0; border-radius: 3px; font-size: 16px; font-weight: 600; letter-spacing: .03em; cursor: pointer; }
+.btn:disabled { opacity: .55; cursor: default; }
+.link { align-self: center; min-height: 44px; padding: 0 8px; background: none; border: 0; font-size: 15px; font-weight: 500; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 5px; cursor: pointer; }
+.msg { margin: 0; font-size: 15px; text-align: center; }
+.msg.err { color: var(--alert); }
+.sign { padding-top: 28px; text-align: center; color: var(--ink-2); font-size: 15px; }
+.sign b { display: block; font-family: var(--display); font-weight: 400; font-size: 20px; color: var(--ink); }
+
+.summary { list-style: none; margin: 0; padding: 0; }
+.summary li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-top: 1px dashed var(--line-2); }
+.summary li:last-child { border-bottom: 1px dashed var(--line-2); }
+.summary .nm { font-family: var(--display); font-size: 21px; }
+.summary .d { display: block; font-size: 14px; color: var(--ink-2); }
+.pill { flex: none; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.pill.yes { color: var(--primary); } .pill.no { color: var(--no); } .pill.wait { color: var(--ink-2); font-weight: 500; }
+
+.center { text-align: center; align-items: center; padding-top: 30px; gap: 12px; display: flex; flex-direction: column; }
+.field { display: flex; flex-direction: column; gap: 6px; padding-top: 22px; }
+.field label { font-size: 14px; color: var(--ink-2); }
+.field input { min-height: 50px; padding: 0 14px; background: var(--paper); border: 1px solid var(--line-2); border-radius: 3px; font-size: 16px; }
+.filebtn { position: relative; padding-top: 14px; }
+.filebtn input { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+.filebtn input:focus-visible + label { outline: 2px solid var(--gold); outline-offset: 3px; }
+.progress { padding-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+.bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--primary); transition: width .3s; }
+.thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding-top: 16px; }
+.thumb { position: relative; aspect-ratio: 1; background: var(--blush); border-radius: 2px; overflow: hidden; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb.wait img { opacity: .45; }
+.thumb.fail { outline: 2px solid var(--alert); outline-offset: -2px; }
+.thumb .tick { position: absolute; right: 4px; bottom: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--primary); display: none; align-items: center; justify-content: center; }
+.thumb.done .tick { display: flex; }
+.spin { width: 22px; height: 22px; border: 2px solid var(--line-2); border-top-color: var(--primary); border-radius: 50%; animation: spin .9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation-duration: 3s; } .bar i { transition: none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="arch">
+    <svg viewBox="0 0 390 336" aria-hidden="true">
+      <path class="o" d="M18 330 L18 196 C18 90.6 120.7 60 195 26 C269.3 60 372 90.6 372 196 L372 330 M18 330 L372 330"/>
+      <path class="s" d="M32 330 L32 190 A23.2 23.2 0 0 0 38.7 151.8 A23.2 23.2 0 0 0 59.3 119.1 A23.3 23.3 0 0 0 89.2 94.4 A23.3 23.3 0 0 0 123.3 75.8 A23.3 23.3 0 0 0 159 60.5 A23.3 23.3 0 0 0 195 46 A23.3 23.3 0 0 0 231 60.5 A23.3 23.3 0 0 0 266.7 75.8 A23.3 23.3 0 0 0 300.8 94.4 A23.3 23.3 0 0 0 330.7 119.1 A23.2 23.2 0 0 0 351.3 151.8 A23.2 23.2 0 0 0 358 190 L358 330"/>
+    </svg>
+    <div class="in">
+      <div class="bless" lang="hi">॥ श्री गणेशाय नमः ॥</div>
+      <h1 class="names"><span class="n">Achal</span><span class="amp">&amp;</span><span class="n">Abhilasha</span></h1>
+    </div>
+  </div>
+
+  <section id="v-loading" class="center" aria-live="polite">
+    <div class="spin" aria-hidden="true"></div>
+    <p class="lede">Opening your invitation…</p>
+  </section>
+
+  <section id="v-message" class="center" hidden>
+    <h2 id="m-title"></h2>
+    <p class="lede" id="m-text"></p>
+    <button type="button" class="link" id="m-retry" hidden>Try again</button>
+  </section>
+
+  <!-- RSVP form -->
+  <section id="v-form" hidden>
+    <div class="intro">
+      <span class="eyebrow">Kindly reply</span>
+      <h2 id="f-dear"></h2>
+      <p class="lede" id="f-lede"></p>
+    </div>
+    <ul class="events" id="f-events"></ul>
+    <div class="actions">
+      <p class="msg" id="f-msg" role="status"></p>
+      <button type="button" class="btn" id="f-send">Send reply</button>
+    </div>
+    <p class="sign">With love,<b id="f-hosts"></b></p>
+  </section>
+
+  <!-- RSVP received -->
+  <section id="v-done" hidden>
+    <div class="intro">
+      <span class="eyebrow">Reply received</span>
+      <h2 id="d-title"></h2>
+      <p class="lede" id="d-lede"></p>
+    </div>
+    <ul class="summary" id="d-list"></ul>
+    <div class="actions">
+      <button type="button" class="link" id="d-change">Change my reply</button>
+    </div>
+    <p class="sign">With love,<b id="d-hosts"></b></p>
+  </section>
+
+  <!-- Photos -->
+  <section id="v-photos" hidden>
+    <div class="intro">
+      <span class="eyebrow" id="p-when"></span>
+      <h2 id="p-title"></h2>
+      <p class="lede">Add the photos you take today. They go straight to the family's album, and only the family can see them.</p>
+    </div>
+    <div class="field">
+      <label for="p-name">Your name (optional)</label>
+      <input id="p-name" autocomplete="name" maxlength="40">
+    </div>
+    <div class="filebtn">
+      <input type="file" id="p-input" accept="image/*" multiple>
+      <label for="p-input" class="btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3.5 8h4l1.5-2.5h6L16.5 8h4v11h-17z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+        Add photos
+      </label>
+    </div>
+    <div class="progress" id="p-progress" hidden>
+      <p class="msg" id="p-status" role="status"></p>
+      <div class="bar"><i id="p-bar"></i></div>
+      <button type="button" class="link" id="p-retry" hidden>Send the ones that failed</button>
+    </div>
+    <div class="thumbs" id="p-thumbs"></div>
+  </section>
+</main>
+
+<script>/*__BOOT__*/</script>
+<script>
+(function () {
+  'use strict';
+  // When this page is hosted outside Google, paste the web app address (ending in /exec) here.
+  var API_URL = 'https://script.google.com/macros/s/AKfycbxEXvP9jEiND5pfIf7GZEZCYHjgwMLxb_O_46MkEdatoW43ycocg291hrFbcJ5eh_bCUQ/exec';
+
+  var boot = window.__BOOT__ || {};
+  var qs = new URLSearchParams(location.search);
+  var API = boot.api || API_URL;
+  var CODE = (boot.g || qs.get('g') || '').trim();
+  var ALBUM = (boot.p || qs.get('p') || '').trim();
+  var $ = function (id) { return document.getElementById(id); };
+  var VIEWS = ['v-loading', 'v-message', 'v-form', 'v-done', 'v-photos'];
+  function show(id) { VIEWS.forEach(function (v) { $(v).hidden = v !== id; }); window.scrollTo(0, 0); }
+  function message(title, text, retry) {
+    $('m-title').textContent = title; $('m-text').textContent = text;
+    $('m-retry').hidden = !retry; $('m-retry').onclick = retry || null; show('v-message');
+  }
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  var TICK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+  function get(params) {
+    return fetch(API + '?' + new URLSearchParams(params).toString(), { redirect: 'follow' }).then(function (r) { return r.json(); });
+  }
+  function post(body) {
+    // text/plain keeps this a "simple" request, which is what a Google web app accepts from another site
+    return fetch(API, { method: 'POST', redirect: 'follow', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json(); });
+  }
+
+  /* ------------------------------------------------------------- RSVP */
+  var invite = null, picks = {};
+
+  function loadInvite() {
+    show('v-loading');
+    get({ action: 'invite', g: CODE }).then(function (d) {
+      if (!d.ok) {
+        if (d.error === 'not_found') return message('This link isn’t recognised', 'Please open the link from your invitation message again. If it still doesn’t work, reply to that message and the family will help.');
+        throw new Error(d.error);
+      }
+      store('aa-code', CODE);
+      invite = d; picks = {};
+      d.events.forEach(function (e) { if (e.reply) picks[e.key] = e.reply; });
+      var open = d.events.filter(function (e) { return !e.closed; });
+      var answered = open.length && open.every(function (e) { return e.reply; });
+      if (!d.events.length) return message('Nothing to reply to yet', 'Please check with the family.');
+      (answered || !open.length) ? renderDone() : renderForm();
+    }).catch(function () {
+      message('Couldn’t open your invitation', 'Please check your internet connection.', loadInvite);
+    });
+  }
+
+  function renderForm() {
+    var d = invite, many = d.events.length > 1;
+    $('f-dear').textContent = 'Dear ' + d.name + ',';
+    $('f-lede').textContent = many
+      ? 'We would be delighted to have you with us. Please let us know which of these you can join.'
+      : 'We would be delighted to have you with us. Please let us know if you can join.';
+    $('f-hosts').textContent = d.hosts;
+    var list = $('f-events'); list.innerHTML = '';
+    d.events.forEach(function (e) {
+      var li = el('li', 'event');
+      li.appendChild(el('h3', null, e.name));
+      var meta = el('div', 'meta');
+      meta.appendChild(el('span', 'when', e.when + ' · ' + e.time));
+      meta.appendChild(el('span', 'where', e.venue));
+      li.appendChild(meta);
+      if (e.map) { var a = el('a', 'map', 'Open in Maps'); a.href = e.map; a.target = '_blank'; a.rel = 'noopener'; a.style.alignSelf = 'flex-start'; li.appendChild(a); }
+      var row = el('div', 'choice'); row.setAttribute('role', 'group'); row.setAttribute('aria-label', e.name);
+      [['yes', 'Joining'], ['no', 'Can’t make it']].forEach(function (o) {
+        var b = el('button', 'opt ' + o[0]); b.type = 'button'; b.innerHTML = TICK; b.appendChild(document.createTextNode(o[1]));
+        b.setAttribute('aria-pressed', picks[e.key] === o[0] ? 'true' : 'false');
+        b.disabled = !!e.closed;
+        b.addEventListener('click', function () {
+          picks[e.key] = o[0];
+          row.querySelectorAll('.opt').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+          $('f-msg').textContent = ''; $('f-msg').className = 'msg';
+        });
+        row.appendChild(b);
+      });
+      li.appendChild(row);
+      if (e.closed) li.appendChild(el('span', 'closed-note', 'Replies for this one have closed.'));
+      list.appendChild(li);
+    });
+    $('f-msg').textContent = ''; $('f-send').disabled = false; $('f-send').textContent = 'Send reply';
+    show('v-form');
+  }
+
+  $('f-send').addEventListener('click', function () {
+    var missing = invite.events.filter(function (e) { return !e.closed && !picks[e.key]; });
+    if (missing.length) {
+      $('f-msg').className = 'msg err';
+      $('f-msg').textContent = 'Please choose an answer for ' + missing.map(function (e) { return e.name; }).join(' and ') + '.';
+      return;
+    }
+    var btn = $('f-send'); btn.disabled = true; btn.textContent = 'Sending…';
+    post({ action: 'rsvp', g: CODE, replies: picks }).then(function (d) {
+      if (!d.ok) throw new Error(d.error);
+      invite = d; renderDone();
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = 'Send reply';
+      $('f-msg').className = 'msg err';
+      $('f-msg').textContent = 'Your reply wasn’t sent. Please check your connection and try again.';
+    });
+  });
+
+  function renderDone() {
+    var d = invite, yes = d.events.filter(function (e) { return e.reply === 'yes'; }).length;
+    $('d-title').textContent = 'Thank you, ' + d.name;
+    $('d-lede').textContent = yes
+      ? 'Your reply has reached the family. We look forward to celebrating with you.'
+      : 'Your reply has reached the family. You will be missed, and your blessings mean a great deal.';
+    $('d-hosts').textContent = d.hosts;
+    var list = $('d-list'); list.innerHTML = '';
+    d.events.forEach(function (e) {
+      var li = el('li'), left = el('span');
+      left.appendChild(el('span', 'nm', e.name)); left.appendChild(el('span', 'd', e.when));
+      li.appendChild(left);
+      li.appendChild(el('span', 'pill ' + (e.reply || 'wait'), e.reply === 'yes' ? 'Joining' : e.reply === 'no' ? 'Can’t make it' : 'No reply'));
+      list.appendChild(li);
+    });
+    $('d-change').hidden = !d.events.some(function (e) { return !e.closed; });
+    show('v-done');
+  }
+  $('d-change').addEventListener('click', renderForm);
+
+  /* ----------------------------------------------------------- photos */
+  var queue = [], sending = false, sent = 0, failed = 0, total = 0;
+
+  function loadAlbum() {
+    show('v-loading');
+    get({ action: 'album', p: ALBUM }).then(function (d) {
+      if (!d.ok) return message('This photo link isn’t recognised', 'Please scan the code at the venue again.');
+      if (d.state === 'early') return message(d.name + ' photos', 'This album opens on ' + d.when + '. Please scan the code again on the day.');
+      if (d.state === 'over') return message('This album has closed', 'Thank you for sharing your photos from the ' + d.name + '.');
+      $('p-when').textContent = d.when; $('p-title').textContent = d.name + ' photos';
+      $('p-name').value = store('aa-name') || '';
+      show('v-photos');
+    }).catch(function () {
+      message('Couldn’t open the album', 'Please check your internet connection.', loadAlbum);
+    });
+  }
+
+  function readDataUrl(blob) {
+    return new Promise(function (res, rej) { var r = new FileReader(); r.onload = function () { res(r.result); }; r.onerror = rej; r.readAsDataURL(blob); });
+  }
+  // Shrinks to 3000px on the long edge. Re-drawing also drops the location stored inside the photo.
+  function prepare(file) {
+    return new Promise(function (resolve, reject) {
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        var max = 3000, s = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+        var c = document.createElement('canvas');
+        c.width = Math.round(img.naturalWidth * s); c.height = Math.round(img.naturalHeight * s);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        c.toBlob(function (b) { b ? resolve(b) : reject(new Error('encode')); }, 'image/jpeg', 0.88);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('decode')); };
+      img.src = url;
+    }).catch(function () {
+      // The browser can't draw it (some HEIC files): send the original if it is small enough
+      if (file.size <= 14 * 1024 * 1024 && /^image\/(jpeg|png|webp|heic|heif)$/.test(file.type)) return file;
+      throw new Error('unsupported');
+    });
+  }
+
+  function status() {
+    var done = sent + failed;
+    $('p-progress').hidden = !total;
+    $('p-bar').style.width = total ? Math.round(100 * done / total) + '%' : '0';
+    var t = sending ? 'Sending ' + Math.min(done + 1, total) + ' of ' + total + '… keep this page open.'
+      : failed ? sent + ' sent, ' + failed + ' not sent.'
+      : sent === 1 ? '1 photo sent. Thank you!' : sent + ' photos sent. Thank you!';
+    $('p-status').textContent = t; $('p-status').className = 'msg' + (!sending && failed ? ' err' : '');
+    $('p-retry').hidden = sending || !failed;
+  }
+
+  function sendOne(item, attempt) {
+    return prepare(item.file).then(function (blob) {
+      return readDataUrl(blob).then(function (u) {
+        return post({ action: 'photo', p: ALBUM, g: store('aa-code') || '', name: $('p-name').value.trim(), mime: blob.type || 'image/jpeg', data: u.slice(u.indexOf(',') + 1) });
+      });
+    }).then(function (d) {
+      if (d.ok) return true;
+      if (d.error === 'closed' || d.error === 'type' || d.error === 'size' || d.error === 'full') return false;
+      throw new Error(d.error);
+    }).catch(function (err) {
+      if (err && err.message === 'unsupported') return false;
+      if (attempt >= 3) return false;
+      return new Promise(function (r) { setTimeout(r, 1500 * attempt * attempt); }).then(function () { return sendOne(item, attempt + 1); });
+    });
+  }
+
+  function pump() {
+    if (sending) return;
+    var item = queue.shift();
+    if (!item) { status(); return; }
+    sending = true; status();
+    sendOne(item, 1).then(function (ok) {
+      item.node.classList.remove('wait');
+      if (ok) { sent++; item.node.classList.add('done'); }
+      else { failed++; item.node.classList.add('fail'); item.failed = true; retry.push(item); }
+      sending = false; pump();
+    });
+  }
+  var retry = [];
+
+  function addFiles(files) {
+    store('aa-name', $('p-name').value.trim());
+    Array.prototype.forEach.call(files, function (f) {
+      var node = el('div', 'thumb wait'), img = new Image();
+      img.alt = ''; img.src = URL.createObjectURL(f); node.appendChild(img);
+      var tick = el('span', 'tick'); tick.innerHTML = TICK.replace('currentColor', '#F7F3F0').replace('width="16" height="16"', 'width="12" height="12"'); node.appendChild(tick);
+      $('p-thumbs').prepend(node);
+      queue.push({ file: f, node: node }); total++;
+    });
+    pump();
+  }
+  $('p-input').addEventListener('change', function (e) { addFiles(e.target.files || []); e.target.value = ''; });
+  $('p-retry').addEventListener('click', function () {
+    var again = retry; retry = [];
+    again.forEach(function (it) { failed--; it.node.classList.remove('fail'); it.node.classList.add('wait'); queue.push(it); });
+    pump();
+  });
+  window.addEventListener('beforeunload', function (e) { if (sending || queue.length) { e.preventDefault(); e.returnValue = ''; } });
+
+  /* ------------------------------------------------------------ start */
+  if (!API || API.indexOf('http') !== 0) message('Not set up yet', 'This page has not been connected to the reply sheet.');
+  else if (ALBUM) loadAlbum();
+  else if (CODE) loadInvite();
+  else message('Please open your invitation link', 'This page opens from the link in your invitation message.');
+})();
+</script>
+</body>
+</html>
