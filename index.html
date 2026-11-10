@@ -4,115 +4,152 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#FBF2EA">
 <title>Achal &amp; Abhilasha</title>
 <meta property="og:title" content="Achal &amp; Abhilasha">
 <meta property="og:description" content="Kindly let us know if you can join us.">
+<meta property="og:image" content="https://achalvaish.github.io/shaadi/ganesh.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Hind:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Tiro+Devanagari+Hindi&display=swap">
 <style>
-/* One column, phone first. A stitched Lucknowi arch carries the names; replies sit below it as a plain list. */
+/* Matches the e-card: cream watercolour ground, rose arched frame, gold Ganesh medallion,
+   maroon script names over a classic serif. Each event carries its own card's colour. */
 :root {
   color-scheme: light;
-  --bg: #F7F3F0; --paper: #FDFBF9; --ink: #14302E; --ink-2: #536661;
-  --gold: #B08D4F; --gold-text: #86672E; --primary: #1E4A47; --on-primary: #F7F3F0;
-  --blush: #EBDDD8; --no: #6B4A44; --alert: #9A2A36;
-  --line: rgba(20, 48, 46, .14); --line-2: rgba(20, 48, 46, .28);
-  --display: 'Rozha One', Georgia, 'Times New Roman', serif;
-  --body: 'Hind', 'Helvetica Neue', Arial, sans-serif;
+  --cream: #FBF2EA;
+  --paper: #FFFAF5;
+  --maroon: #600024;         /* names and headings, from the card */
+  --ink: #4E2E37;            /* body text */
+  --ink-2: #7A5A62;
+  --rose: #E38EBC;           /* cover page frame */
+  --rose-soft: #F6D3E3;
+  --gold: #B3843F;
+  --no: #8A4B57;
+  --alert: #9A1F3A;
+  --line: rgba(96, 0, 36, .16);
+  --script: 'Great Vibes', 'Brush Script MT', cursive;
+  --serif: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  --deva: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body {
+  margin: 0; min-height: 100vh; color: var(--ink); font-family: var(--serif); font-size: 18px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(60% 40% at 0% 0%, rgba(227, 142, 188, .28), transparent 70%),
+    radial-gradient(55% 35% at 100% 8%, rgba(244, 165, 137, .25), transparent 70%),
+    radial-gradient(70% 40% at 100% 100%, rgba(242, 198, 112, .22), transparent 70%),
+    radial-gradient(60% 40% at 0% 95%, rgba(143, 212, 215, .20), transparent 70%);
+  background-attachment: fixed;
+}
 [hidden] { display: none !important; }
 button, input { font: inherit; color: inherit; }
-a { color: var(--ink); }
+a { color: var(--maroon); }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-.wrap { max-width: 460px; margin: 0 auto; padding: 0 20px 48px; display: flex; flex-direction: column; }
 
-.arch { position: relative; width: 100%; max-width: 360px; aspect-ratio: 390 / 336; margin: 12px auto 0; container-type: inline-size; }
-.arch svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.arch .o { fill: none; stroke: var(--gold); stroke-width: 1; }
-.arch .s { fill: none; stroke: var(--primary); stroke-width: 1.1; stroke-dasharray: 3.5 3.5; stroke-linecap: round; }
-.arch .in { position: absolute; left: 14%; right: 14%; top: 27%; bottom: 6%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 1.6cqw; }
-.bless { font-family: var(--display); font-size: max(12px, 3.9cqw); color: var(--gold-text); }
-.names { margin: 0; font-family: var(--display); font-weight: 400; line-height: 1.04; display: flex; flex-direction: column; align-items: center; }
-.names .n { font-size: 11.6cqw; }
-.names .amp { font-size: 5.6cqw; color: var(--gold); line-height: 1.2; }
+/* the framed card */
+.frame {
+  position: relative; max-width: 460px; margin: 66px auto 28px; width: calc(100% - 28px);
+  background: rgba(255, 250, 245, .82);
+  border: 2px solid var(--rose);
+  border-radius: 190px 190px 22px 22px / 120px 120px 22px 22px;
+  box-shadow: 0 0 0 6px rgba(255, 250, 245, .7), 0 0 0 7px var(--rose-soft), 0 18px 40px -24px rgba(96, 0, 36, .35);
+  padding: 88px 22px 34px;
+}
+.medal { position: absolute; left: 50%; top: -54px; width: 104px; height: auto; transform: translateX(-50%); filter: drop-shadow(0 4px 6px rgba(96, 0, 36, .18)); }
 
-.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-text); }
-h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.12; text-wrap: balance; }
-.lede { margin: 0; color: var(--ink-2); }
-.intro { display: flex; flex-direction: column; gap: 10px; padding: 26px 0 8px; }
+.head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.shloka { font-family: var(--deva); color: var(--maroon); font-size: 17px; letter-spacing: .02em; }
+.names { margin: 6px 0 0; font-family: var(--script); font-weight: 400; color: var(--maroon); line-height: .95; display: flex; flex-direction: column; align-items: center; }
+.names .n { font-size: 60px; }
+.names .w { font-family: var(--serif); font-size: 20px; color: var(--ink); line-height: 1.6; }
+.flourish { display: block; margin: 14px auto 0; width: 120px; height: 18px; }
 
-.events { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
-.event { display: flex; flex-direction: column; gap: 12px; padding: 22px 0; border-top: 1px dashed var(--line-2); }
-.event:last-child { border-bottom: 1px dashed var(--line-2); }
-.event h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 26px; line-height: 1.1; }
-.event .when { font-weight: 600; }
-.event .where { color: var(--ink-2); font-size: 15px; }
-.event .map { font-size: 14px; font-weight: 500; text-decoration-color: var(--gold); text-underline-offset: 4px; }
-.meta { display: flex; flex-direction: column; gap: 2px; }
-.choice { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.opt { min-height: 50px; padding: 8px 10px; background: transparent; border: 1px solid var(--line-2); border-radius: 3px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.caps { font-size: 13px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-2); }
+.dear { margin: 0; font-family: var(--script); font-weight: 400; font-size: 40px; line-height: 1.1; color: var(--maroon); }
+.lede { margin: 0; color: var(--ink); max-width: 34ch; }
+.intro { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 24px 0 20px; }
+
+.events { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.event {
+  --tint: #F7A8B0;
+  position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
+  padding: 18px 16px 16px; border-radius: 18px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--tint) 30%, #fff) 0%, color-mix(in srgb, var(--tint) 12%, #fff) 100%);
+  border: 1px solid color-mix(in srgb, var(--tint) 75%, #fff);
+}
+.event h3 { margin: 0; font-family: var(--script); font-weight: 400; font-size: 46px; line-height: 1; color: var(--maroon); }
+.event .tag { font-family: var(--script); font-size: 21px; color: var(--maroon); opacity: .85; line-height: 1.1; }
+.event .when { margin-top: 6px; font-size: 14px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); }
+.event .time { font-size: 17px; color: var(--ink); }
+.event .where { font-size: 16px; color: var(--ink-2); max-width: 30ch; }
+.event .map { display: inline-block; margin-top: 2px; padding: 3px 14px; border-radius: 999px; background: color-mix(in srgb, var(--tint) 70%, #fff); color: var(--maroon); font-size: 14px; font-weight: 500; text-decoration: none; }
+.choice { align-self: stretch; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.opt { min-height: 48px; padding: 6px 10px; background: rgba(255, 255, 255, .75); border: 1px solid color-mix(in srgb, var(--tint) 80%, var(--maroon) 10%); border-radius: 999px; font-size: 17px; font-weight: 500; color: var(--maroon); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
 .opt svg { display: none; flex: none; }
 .opt[aria-pressed="true"] svg { display: block; }
-.opt.yes[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
-.opt.no[aria-pressed="true"] { background: var(--blush); border-color: var(--no); color: var(--no); }
-.opt:disabled { cursor: default; opacity: .75; }
-.closed-note { font-size: 14px; color: var(--ink-2); }
+.opt.yes[aria-pressed="true"] { background: var(--maroon); border-color: var(--maroon); color: #FFF6EF; }
+.opt.no[aria-pressed="true"] { background: #fff; border-color: var(--no); color: var(--no); }
+.opt:disabled { cursor: default; opacity: .7; }
+.closed-note { font-size: 15px; font-style: italic; color: var(--ink-2); }
 
-.actions { display: flex; flex-direction: column; gap: 10px; padding-top: 24px; }
-.btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 56px; padding: 0 20px; background: var(--primary); color: var(--on-primary); border: 0; border-radius: 3px; font-size: 16px; font-weight: 600; letter-spacing: .03em; cursor: pointer; }
+.actions { display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 22px; }
+.btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 54px; padding: 0 22px; background: var(--maroon); color: #FFF6EF; border: 0; border-radius: 999px; font-size: 18px; font-weight: 500; letter-spacing: .06em; cursor: pointer; box-shadow: 0 8px 18px -12px rgba(96, 0, 36, .6); }
 .btn:disabled { opacity: .55; cursor: default; }
-.link { align-self: center; min-height: 44px; padding: 0 8px; background: none; border: 0; font-size: 15px; font-weight: 500; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 5px; cursor: pointer; }
-.msg { margin: 0; font-size: 15px; text-align: center; }
+.link { min-height: 44px; padding: 0 8px; background: none; border: 0; color: var(--maroon); font-size: 17px; font-style: italic; text-decoration: underline; text-decoration-color: var(--rose); text-underline-offset: 5px; cursor: pointer; }
+.msg { margin: 0; font-size: 16px; text-align: center; }
 .msg.err { color: var(--alert); }
-.sign { padding-top: 28px; text-align: center; color: var(--ink-2); font-size: 15px; }
-.sign b { display: block; font-family: var(--display); font-weight: 400; font-size: 20px; color: var(--ink); }
 
-.summary { list-style: none; margin: 0; padding: 0; }
-.summary li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-top: 1px dashed var(--line-2); }
-.summary li:last-child { border-bottom: 1px dashed var(--line-2); }
-.summary .nm { font-family: var(--display); font-size: 21px; }
-.summary .d { display: block; font-size: 14px; color: var(--ink-2); }
-.pill { flex: none; font-size: 14px; font-weight: 600; white-space: nowrap; }
-.pill.yes { color: var(--primary); } .pill.no { color: var(--no); } .pill.wait { color: var(--ink-2); font-weight: 500; }
+.sign { margin-top: 26px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; color: var(--ink-2); font-size: 16px; }
+.sign b { font-family: var(--script); font-weight: 400; font-size: 32px; line-height: 1.15; color: var(--maroon); }
+.hashtag { margin-top: 14px; padding: 4px 16px; border-radius: 999px; background: var(--rose-soft); color: var(--maroon); font-size: 14px; font-weight: 600; letter-spacing: .02em; }
 
-.center { text-align: center; align-items: center; padding-top: 30px; gap: 12px; display: flex; flex-direction: column; }
-.field { display: flex; flex-direction: column; gap: 6px; padding-top: 22px; }
-.field label { font-size: 14px; color: var(--ink-2); }
-.field input { min-height: 50px; padding: 0 14px; background: var(--paper); border: 1px solid var(--line-2); border-radius: 3px; font-size: 16px; }
+.summary { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.summary li { --tint: #F7A8B0; display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 10px 16px; border-radius: 14px; background: color-mix(in srgb, var(--tint) 20%, #fff); border: 1px solid color-mix(in srgb, var(--tint) 70%, #fff); }
+.summary .nm { font-family: var(--script); font-size: 32px; line-height: 1.1; color: var(--maroon); }
+.summary .d { display: block; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
+.pill { flex: none; font-size: 16px; font-weight: 600; white-space: nowrap; }
+.pill.yes { color: var(--maroon); } .pill.no { color: var(--no); font-weight: 500; } .pill.wait { color: var(--ink-2); font-weight: 400; font-style: italic; }
+
+.center { text-align: center; align-items: center; padding-top: 24px; gap: 10px; display: flex; flex-direction: column; }
+.h2 { margin: 0; font-family: var(--script); font-weight: 400; font-size: 42px; line-height: 1.1; color: var(--maroon); }
+.field { display: flex; flex-direction: column; gap: 6px; padding-top: 20px; }
+.field label { font-size: 15px; color: var(--ink-2); }
+.field input { min-height: 50px; padding: 0 16px; background: #fff; border: 1px solid var(--rose); border-radius: 999px; font-size: 17px; }
 .filebtn { position: relative; padding-top: 14px; }
 .filebtn input { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
 .filebtn input:focus-visible + label { outline: 2px solid var(--gold); outline-offset: 3px; }
-.progress { padding-top: 18px; display: flex; flex-direction: column; gap: 8px; }
-.bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
-.bar i { display: block; height: 100%; width: 0; background: var(--primary); transition: width .3s; }
-.thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding-top: 16px; }
-.thumb { position: relative; aspect-ratio: 1; background: var(--blush); border-radius: 2px; overflow: hidden; }
+.progress { padding-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.bar { height: 4px; background: var(--rose-soft); border-radius: 2px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--maroon); transition: width .3s; }
+.thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding-top: 14px; }
+.thumb { position: relative; aspect-ratio: 1; background: var(--rose-soft); border-radius: 6px; overflow: hidden; }
 .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .thumb.wait img { opacity: .45; }
 .thumb.fail { outline: 2px solid var(--alert); outline-offset: -2px; }
-.thumb .tick { position: absolute; right: 4px; bottom: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--primary); display: none; align-items: center; justify-content: center; }
+.thumb .tick { position: absolute; right: 4px; bottom: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--maroon); display: none; align-items: center; justify-content: center; }
 .thumb.done .tick { display: flex; }
-.spin { width: 22px; height: 22px; border: 2px solid var(--line-2); border-top-color: var(--primary); border-radius: 50%; animation: spin .9s linear infinite; }
+.spin { width: 24px; height: 24px; border: 2px solid var(--rose-soft); border-top-color: var(--maroon); border-radius: 50%; animation: spin .9s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .spin { animation-duration: 3s; } .bar i { transition: none; } }
+@media (max-width: 360px) { .names .n { font-size: 52px; } .event h3 { font-size: 40px; } .frame { padding-inline: 14px; } }
 </style>
 </head>
 <body>
-<main class="wrap">
-  <div class="arch">
-    <svg viewBox="0 0 390 336" aria-hidden="true">
-      <path class="o" d="M18 330 L18 196 C18 90.6 120.7 60 195 26 C269.3 60 372 90.6 372 196 L372 330 M18 330 L372 330"/>
-      <path class="s" d="M32 330 L32 190 A23.2 23.2 0 0 0 38.7 151.8 A23.2 23.2 0 0 0 59.3 119.1 A23.3 23.3 0 0 0 89.2 94.4 A23.3 23.3 0 0 0 123.3 75.8 A23.3 23.3 0 0 0 159 60.5 A23.3 23.3 0 0 0 195 46 A23.3 23.3 0 0 0 231 60.5 A23.3 23.3 0 0 0 266.7 75.8 A23.3 23.3 0 0 0 300.8 94.4 A23.3 23.3 0 0 0 330.7 119.1 A23.2 23.2 0 0 0 351.3 151.8 A23.2 23.2 0 0 0 358 190 L358 330"/>
+<main class="frame">
+  <img class="medal" src="https://achalvaish.github.io/shaadi/ganesh.png" width="104" height="127" alt="">
+  <header class="head">
+    <div class="shloka" lang="hi">॥ श्री गणेशाय नमः ॥</div>
+    <h1 class="names"><span class="n">Achal</span><span class="w">weds</span><span class="n">Abhilasha</span></h1>
+    <svg class="flourish" viewBox="0 0 120 18" aria-hidden="true" fill="none" stroke="#B3843F" stroke-width="1.1" stroke-linecap="round">
+      <path d="M4 9 C 20 9, 26 3, 36 5 C 44 7, 42 13, 36 12 C 31 11, 33 6, 40 6 C 48 6, 52 9, 56 9"/>
+      <path d="M116 9 C 100 9, 94 3, 84 5 C 76 7, 78 13, 84 12 C 89 11, 87 6, 80 6 C 72 6, 68 9, 64 9"/>
+      <path d="M60 5 L64 9 L60 13 L56 9 Z" fill="#B3843F" stroke="none"/>
     </svg>
-    <div class="in">
-      <div class="bless" lang="hi">॥ श्री गणेशाय नमः ॥</div>
-      <h1 class="names"><span class="n">Achal</span><span class="amp">&amp;</span><span class="n">Abhilasha</span></h1>
-    </div>
-  </div>
+  </header>
 
   <section id="v-loading" class="center" aria-live="polite">
     <div class="spin" aria-hidden="true"></div>
@@ -120,7 +157,7 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
   </section>
 
   <section id="v-message" class="center" hidden>
-    <h2 id="m-title"></h2>
+    <h2 class="h2" id="m-title"></h2>
     <p class="lede" id="m-text"></p>
     <button type="button" class="link" id="m-retry" hidden>Try again</button>
   </section>
@@ -128,8 +165,8 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
   <!-- RSVP form -->
   <section id="v-form" hidden>
     <div class="intro">
-      <span class="eyebrow">Kindly reply</span>
-      <h2 id="f-dear"></h2>
+      <span class="caps">Kindly reply</span>
+      <h2 class="dear" id="f-dear"></h2>
       <p class="lede" id="f-lede"></p>
     </div>
     <ul class="events" id="f-events"></ul>
@@ -137,28 +174,26 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
       <p class="msg" id="f-msg" role="status"></p>
       <button type="button" class="btn" id="f-send">Send reply</button>
     </div>
-    <p class="sign">With love,<b id="f-hosts"></b></p>
   </section>
 
   <!-- RSVP received -->
   <section id="v-done" hidden>
     <div class="intro">
-      <span class="eyebrow">Reply received</span>
-      <h2 id="d-title"></h2>
+      <span class="caps">Reply received</span>
+      <h2 class="dear" id="d-title"></h2>
       <p class="lede" id="d-lede"></p>
     </div>
     <ul class="summary" id="d-list"></ul>
     <div class="actions">
       <button type="button" class="link" id="d-change">Change my reply</button>
     </div>
-    <p class="sign">With love,<b id="d-hosts"></b></p>
   </section>
 
   <!-- Photos -->
   <section id="v-photos" hidden>
     <div class="intro">
-      <span class="eyebrow" id="p-when"></span>
-      <h2 id="p-title"></h2>
+      <span class="caps" id="p-when"></span>
+      <h2 class="dear" id="p-title"></h2>
       <p class="lede">Add the photos you take today. They go straight to the family's album, and only the family can see them.</p>
     </div>
     <div class="field">
@@ -179,6 +214,12 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
     </div>
     <div class="thumbs" id="p-thumbs"></div>
   </section>
+
+  <footer class="sign" id="sign" hidden>
+    <span>With love,</span>
+    <b id="hosts">Arvind &amp; Vandana Vaish</b>
+    <span class="hashtag">#AchalKiAbhilasha</span>
+  </footer>
 </main>
 
 <script>/*__BOOT__*/</script>
@@ -188,6 +229,14 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
   // When this page is hosted outside Google, paste the web app address (ending in /exec) here.
   var API_URL = 'https://script.google.com/macros/s/AKfycbxEXvP9jEiND5pfIf7GZEZCYHjgwMLxb_O_46MkEdatoW43ycocg291hrFbcJ5eh_bCUQ/exec';
 
+  // Each event wears its own card's colour and line.
+  var LOOK = {
+    haldi:     { tint: '#F2C670', tag: 'A Splash of Yellow, A Lifetime of Love' },
+    sagai:     { tint: '#8FD4D7', tag: 'A Promise Made, A Forever Sealed' },
+    vivaah:    { tint: '#F7A8B0', tag: 'Two hearts, Two families, One beautiful forever' },
+    reception: { tint: '#F4A589', tag: 'A New Beginning, A Beautiful Forever' }
+  };
+
   var boot = window.__BOOT__ || {};
   var qs = new URLSearchParams(location.search);
   var API = boot.api || API_URL;
@@ -195,13 +244,18 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
   var ALBUM = (boot.p || qs.get('p') || '').trim();
   var $ = function (id) { return document.getElementById(id); };
   var VIEWS = ['v-loading', 'v-message', 'v-form', 'v-done', 'v-photos'];
-  function show(id) { VIEWS.forEach(function (v) { $(v).hidden = v !== id; }); window.scrollTo(0, 0); }
+  function show(id) {
+    VIEWS.forEach(function (v) { $(v).hidden = v !== id; });
+    $('sign').hidden = !(id === 'v-form' || id === 'v-done');
+    window.scrollTo(0, 0);
+  }
   function message(title, text, retry) {
     $('m-title').textContent = title; $('m-text').textContent = text;
     $('m-retry').hidden = !retry; $('m-retry').onclick = retry || null; show('v-message');
   }
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function tint(node, key) { var l = LOOK[key]; if (l) node.style.setProperty('--tint', l.tint); }
   var TICK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 
   function get(params) {
@@ -220,11 +274,12 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
     show('v-loading');
     get({ action: 'invite', g: CODE }).then(function (d) {
       if (!d.ok) {
-        if (d.error === 'not_found') return message('This link isn’t recognised', 'Please open the link from your invitation message again. If it still doesn’t work, reply to that message and the family will help.');
+        if (d.error === 'not_found') return message('Link not recognised', 'Please open the link from your invitation message again. If it still doesn’t work, reply to that message and the family will help.');
         throw new Error(d.error);
       }
       store('aa-code', CODE);
       invite = d; picks = {};
+      if (d.hosts) $('hosts').textContent = d.hosts;
       d.events.forEach(function (e) { if (e.reply) picks[e.key] = e.reply; });
       var open = d.events.filter(function (e) { return !e.closed; });
       var answered = open.length && open.every(function (e) { return e.reply; });
@@ -241,16 +296,15 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
     $('f-lede').textContent = many
       ? 'We would be delighted to have you with us. Please let us know which of these you can join.'
       : 'We would be delighted to have you with us. Please let us know if you can join.';
-    $('f-hosts').textContent = d.hosts;
     var list = $('f-events'); list.innerHTML = '';
     d.events.forEach(function (e) {
-      var li = el('li', 'event');
+      var li = el('li', 'event'); tint(li, e.key);
       li.appendChild(el('h3', null, e.name));
-      var meta = el('div', 'meta');
-      meta.appendChild(el('span', 'when', e.when + ' · ' + e.time));
-      meta.appendChild(el('span', 'where', e.venue));
-      li.appendChild(meta);
-      if (e.map) { var a = el('a', 'map', 'Open in Maps'); a.href = e.map; a.target = '_blank'; a.rel = 'noopener'; a.style.alignSelf = 'flex-start'; li.appendChild(a); }
+      if (LOOK[e.key]) li.appendChild(el('span', 'tag', LOOK[e.key].tag));
+      li.appendChild(el('span', 'when', e.when));
+      li.appendChild(el('span', 'time', e.time));
+      li.appendChild(el('span', 'where', e.venue));
+      if (e.map) { var a = el('a', 'map', 'Click for location'); a.href = e.map; a.target = '_blank'; a.rel = 'noopener'; li.appendChild(a); }
       var row = el('div', 'choice'); row.setAttribute('role', 'group'); row.setAttribute('aria-label', e.name);
       [['yes', 'Joining'], ['no', 'Can’t make it']].forEach(function (o) {
         var b = el('button', 'opt ' + o[0]); b.type = 'button'; b.innerHTML = TICK; b.appendChild(document.createTextNode(o[1]));
@@ -295,10 +349,9 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
     $('d-lede').textContent = yes
       ? 'Your reply has reached the family. We look forward to celebrating with you.'
       : 'Your reply has reached the family. You will be missed, and your blessings mean a great deal.';
-    $('d-hosts').textContent = d.hosts;
     var list = $('d-list'); list.innerHTML = '';
     d.events.forEach(function (e) {
-      var li = el('li'), left = el('span');
+      var li = el('li'), left = el('span'); tint(li, e.key);
       left.appendChild(el('span', 'nm', e.name)); left.appendChild(el('span', 'd', e.when));
       li.appendChild(left);
       li.appendChild(el('span', 'pill ' + (e.reply || 'wait'), e.reply === 'yes' ? 'Joining' : e.reply === 'no' ? 'Can’t make it' : 'No reply'));
@@ -310,12 +363,12 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
   $('d-change').addEventListener('click', renderForm);
 
   /* ----------------------------------------------------------- photos */
-  var queue = [], sending = false, sent = 0, failed = 0, total = 0;
+  var queue = [], sending = false, sent = 0, failed = 0, total = 0, retry = [];
 
   function loadAlbum() {
     show('v-loading');
     get({ action: 'album', p: ALBUM }).then(function (d) {
-      if (!d.ok) return message('This photo link isn’t recognised', 'Please scan the code at the venue again.');
+      if (!d.ok) return message('Photo link not recognised', 'Please scan the code at the venue again.');
       if (d.state === 'early') return message(d.name + ' photos', 'This album opens on ' + d.when + '. Please scan the code again on the day.');
       if (d.state === 'over') return message('This album has closed', 'Thank you for sharing your photos from the ' + d.name + '.');
       $('p-when').textContent = d.when; $('p-title').textContent = d.name + ' photos';
@@ -385,18 +438,17 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
     sendOne(item, 1).then(function (ok) {
       item.node.classList.remove('wait');
       if (ok) { sent++; item.node.classList.add('done'); }
-      else { failed++; item.node.classList.add('fail'); item.failed = true; retry.push(item); }
+      else { failed++; item.node.classList.add('fail'); retry.push(item); }
       sending = false; pump();
     });
   }
-  var retry = [];
 
   function addFiles(files) {
     store('aa-name', $('p-name').value.trim());
     Array.prototype.forEach.call(files, function (f) {
       var node = el('div', 'thumb wait'), img = new Image();
       img.alt = ''; img.src = URL.createObjectURL(f); node.appendChild(img);
-      var tick = el('span', 'tick'); tick.innerHTML = TICK.replace('currentColor', '#F7F3F0').replace('width="16" height="16"', 'width="12" height="12"'); node.appendChild(tick);
+      var tick = el('span', 'tick'); tick.innerHTML = TICK.replace('currentColor', '#FFF6EF').replace('width="16" height="16"', 'width="12" height="12"'); node.appendChild(tick);
       $('p-thumbs').prepend(node);
       queue.push({ file: f, node: node }); total++;
     });
