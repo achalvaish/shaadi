@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://achalvaish.github.io/shaadi/ganesh.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Tiro+Devanagari+Hindi&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Tiro+Devanagari+Hindi&display=swap">
 <style>
 /* Matches the e-card: cream watercolour ground, rose arched frame, gold Ganesh medallion,
    maroon script names over a classic serif. Each event carries its own card's colour. */
@@ -28,7 +28,7 @@
   --no: #8A4B57;
   --alert: #9A1F3A;
   --line: rgba(96, 0, 36, .16);
-  --script: 'Great Vibes', 'Brush Script MT', cursive;
+  --script: 'Allura', 'Brush Script MT', cursive;
   --serif: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
   --deva: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
 }
@@ -64,12 +64,12 @@ a { color: var(--maroon); }
 .head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .shloka { font-family: var(--deva); color: var(--maroon); font-size: 17px; letter-spacing: .02em; }
 .names { margin: 6px 0 0; font-family: var(--script); font-weight: 400; color: var(--maroon); line-height: .95; display: flex; flex-direction: column; align-items: center; }
-.names .n { font-size: 60px; }
+.names .n { font-size: 66px; }
 .names .w { font-family: var(--serif); font-size: 20px; color: var(--ink); line-height: 1.6; }
 .flourish { display: block; margin: 14px auto 0; width: 120px; height: 18px; }
 
 .caps { font-size: 13px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-2); }
-.dear { margin: 0; font-family: var(--script); font-weight: 400; font-size: 40px; line-height: 1.1; color: var(--maroon); }
+.dear { margin: 0; font-family: var(--script); font-weight: 400; font-size: 44px; line-height: 1.1; color: var(--maroon); }
 .lede { margin: 0; color: var(--ink); max-width: 34ch; }
 .intro { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 24px 0 20px; }
 
@@ -81,8 +81,8 @@ a { color: var(--maroon); }
   background: linear-gradient(180deg, color-mix(in srgb, var(--tint) 30%, #fff) 0%, color-mix(in srgb, var(--tint) 12%, #fff) 100%);
   border: 1px solid color-mix(in srgb, var(--tint) 75%, #fff);
 }
-.event h3 { margin: 0; font-family: var(--script); font-weight: 400; font-size: 46px; line-height: 1; color: var(--maroon); }
-.event .tag { font-family: var(--script); font-size: 21px; color: var(--maroon); opacity: .85; line-height: 1.1; }
+.event h3 { margin: 0; font-family: var(--script); font-weight: 400; font-size: 50px; line-height: 1; color: var(--maroon); }
+.event .tag { font-family: var(--script); font-size: 24px; color: var(--maroon); opacity: .85; line-height: 1.1; }
 .event .when { margin-top: 6px; font-size: 14px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); }
 .event .time { font-size: 17px; color: var(--ink); }
 .event .where { font-size: 16px; color: var(--ink-2); max-width: 30ch; }
@@ -104,18 +104,18 @@ a { color: var(--maroon); }
 .msg.err { color: var(--alert); }
 
 .sign { margin-top: 26px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; color: var(--ink-2); font-size: 16px; }
-.sign b { font-family: var(--script); font-weight: 400; font-size: 32px; line-height: 1.15; color: var(--maroon); }
+.sign b { font-family: var(--script); font-weight: 400; font-size: 31px; white-space: nowrap; line-height: 1.15; color: var(--maroon); }
 .hashtag { margin-top: 14px; padding: 4px 16px; border-radius: 999px; background: var(--rose-soft); color: var(--maroon); font-size: 14px; font-weight: 600; letter-spacing: .02em; }
 
 .summary { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .summary li { --tint: #F7A8B0; display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 10px 16px; border-radius: 14px; background: color-mix(in srgb, var(--tint) 20%, #fff); border: 1px solid color-mix(in srgb, var(--tint) 70%, #fff); }
-.summary .nm { font-family: var(--script); font-size: 32px; line-height: 1.1; color: var(--maroon); }
+.summary .nm { font-family: var(--script); font-size: 36px; line-height: 1.1; color: var(--maroon); }
 .summary .d { display: block; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
 .pill { flex: none; font-size: 16px; font-weight: 600; white-space: nowrap; }
 .pill.yes { color: var(--maroon); } .pill.no { color: var(--no); font-weight: 500; } .pill.wait { color: var(--ink-2); font-weight: 400; font-style: italic; }
 
 .center { text-align: center; align-items: center; padding-top: 24px; gap: 10px; display: flex; flex-direction: column; }
-.h2 { margin: 0; font-family: var(--script); font-weight: 400; font-size: 42px; line-height: 1.1; color: var(--maroon); }
+.h2 { margin: 0; font-family: var(--script); font-weight: 400; font-size: 46px; line-height: 1.1; color: var(--maroon); }
 .field { display: flex; flex-direction: column; gap: 6px; padding-top: 20px; }
 .field label { font-size: 15px; color: var(--ink-2); }
 .field input { min-height: 50px; padding: 0 16px; background: #fff; border: 1px solid var(--rose); border-radius: 999px; font-size: 17px; }
@@ -135,7 +135,7 @@ a { color: var(--maroon); }
 .spin { width: 24px; height: 24px; border: 2px solid var(--rose-soft); border-top-color: var(--maroon); border-radius: 50%; animation: spin .9s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .spin { animation-duration: 3s; } .bar i { transition: none; } }
-@media (max-width: 360px) { .names .n { font-size: 52px; } .event h3 { font-size: 40px; } .frame { padding-inline: 14px; } }
+@media (max-width: 360px) { .names .n { font-size: 56px; } .event h3 { font-size: 44px; } .frame { padding-inline: 14px; } }
 </style>
 </head>
 <body>
@@ -255,6 +255,12 @@ a { color: var(--maroon); }
   }
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  // 'mausi ji and family' -> 'Mausi Ji and Family'
+  function tidy(n) {
+    return String(n || '').split(/\s+/).filter(Boolean).map(function (w, i) {
+      return i && /^(and|with|&)$/i.test(w) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(' ').replace(/ ,/g, ',');
+  }
   function tint(node, key) { var l = LOOK[key]; if (l) node.style.setProperty('--tint', l.tint); }
   var TICK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 
@@ -278,7 +284,7 @@ a { color: var(--maroon); }
         throw new Error(d.error);
       }
       store('aa-code', CODE);
-      invite = d; picks = {};
+      d.name = tidy(d.name); invite = d; picks = {};
       if (d.hosts) $('hosts').textContent = d.hosts;
       d.events.forEach(function (e) { if (e.reply) picks[e.key] = e.reply; });
       var open = d.events.filter(function (e) { return !e.closed; });
@@ -335,7 +341,7 @@ a { color: var(--maroon); }
     var btn = $('f-send'); btn.disabled = true; btn.textContent = 'Sending…';
     post({ action: 'rsvp', g: CODE, replies: picks }).then(function (d) {
       if (!d.ok) throw new Error(d.error);
-      invite = d; renderDone();
+      d.name = tidy(d.name); invite = d; renderDone();
     }).catch(function () {
       btn.disabled = false; btn.textContent = 'Send reply';
       $('f-msg').className = 'msg err';
